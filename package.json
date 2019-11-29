@@ -1,6 +1,6 @@
 {
   "name": "react-notarealdb",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "A \"fake\" database for reactjs react-native that stores data in local storage, for sample applications.",
   "license": "MIT",
   "repository": {
@@ -16,12 +16,12 @@
     "shortid": "^2.2.15"
   },
   "devDependencies": {
-    "@babel/runtime": "^7.7.4",
-    "@babel/plugin-transform-runtime": "^7.7.4",
-    "@babel/plugin-proposal-class-properties": "^7.7.4",
     "@babel/cli": "^7.7.4",
     "@babel/core": "^7.7.4",
+    "@babel/plugin-proposal-class-properties": "^7.7.4",
+    "@babel/plugin-transform-runtime": "^7.7.4",
     "@babel/preset-env": "^7.7.4",
+    "@babel/runtime": "^7.7.4",
     "jest": "^24.9.0"
   }
 }
