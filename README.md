@@ -1,3 +1,7 @@
+[![NPM](https://nodei.co/npm/react-notarealdb.png)](https://nodei.co/npm/react-notarealdb/)
+
+[![install size](https://packagephobia.now.sh/badge?p=react-notarealdb)](https://packagephobia.now.sh/result?p=react-notarealdb) [![dependencies](https://david-dm.org/hosseinmd/react-notarealdb.svg)](https://david-dm.org/hosseinmd/react-notarealdb.svg)
+
 # Not a Real DB
 
 A "fake" database for reactjs react-native that stores data in local storage, for sample applications.
@@ -7,7 +11,7 @@ A "fake" database for reactjs react-native that stores data in local storage, fo
 Create a `DataStore` instance specifying by name to store the data. then run load for get old data
 
 ```js
-const { DataStore } = require("notarealdb");
+const { DataStore } = require("react-notarealdb");
 
 const apples = new DataStore("apples");
 const oranges = new DataStore("oranges");
