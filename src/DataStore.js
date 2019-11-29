@@ -2,14 +2,20 @@ import { storage } from "./storage/index";
 import { generate as generateId } from "shortid";
 
 export class DataStore {
-  name = "";
-  entities = [];
-
   /**
    * @param {string} name
    */
   constructor(name) {
-    this.name = name;
+    /**
+     * @private
+     * @type {string}
+     */
+    this._name = name;
+    /**
+     * @private
+     * @type {object[]}
+     */
+    this._entities = [];
   }
 
   /**
@@ -18,39 +24,39 @@ export class DataStore {
    */
   async create(obj) {
     const entity = { id: generateId(), ...obj };
-    this.entities.push(entity);
-    await storage.setItem(this.name, this.entities);
+    this._entities.push(entity);
+    await storage.setItem(this._name, this._entities);
     return entity.id;
   }
 
   async delete(id) {
-    const index = findIndex(this.entities, id, this.name);
-    this.entities.splice(index, 1);
-    await storage.setItem(this.name, this.entities);
+    const index = findIndex(this._entities, id, this._name);
+    this._entities.splice(index, 1);
+    await storage.setItem(this._name, this._entities);
   }
 
   /**
    * @param {string} id
    */
   get(id) {
-    return this.entities.find(item => item.id === id);
+    return this._entities.find(item => item.id === id);
   }
 
   /**
    * @returns {[]}
    */
   list() {
-    return this.entities;
+    return this._entities;
   }
 
   async update(entity) {
-    const index = findIndex(this.entities, entity.id, this.name);
+    const index = findIndex(this.entities, entity.id, this._name);
     this.entities[index] = entity;
-    await storage.setItem(this.name, this.entities);
+    await storage.setItem(this._name, this._entities);
   }
 
   async load() {
-    this.entities = await storage.getItem(this.name);
+    this._entities = (await storage.getItem(this._name)) || [];
   }
 }
 
