@@ -50,8 +50,8 @@ export class DataStore {
   }
 
   async update(entity) {
-    const index = findIndex(this.entities, entity.id, this._name);
-    this.entities[index] = entity;
+    const index = findIndex(this._entities, entity.id, this._name);
+    this._entities[index] = entity;
     await storage.setItem(this._name, this._entities);
   }
 
